@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Pannel</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand" href="">GSCT</a>
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="/admin/">Admin Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="container mt-4">
+      <h3 class="text-center alert alert-success">{{ std.std_name }} PROFILE</h3>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-bordered table-striped table-hover">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>Heading</th>
+                    <th>Data</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Roll Number</td>
+                    <td>{{ std.std_rollno }}</td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td>{{ std.std_name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Father Name</td>
+                    <td>{{ std.std_father_name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Mother Name</td>
+                    <td>{{ std.std_mother_name }}</td>
+                  </tr>
+                  <tr>
+                    <td>Date of Birth</td>
+                    <td>{{ std.std_age }}</td>
+                  </tr>
+                  <tr>
+                    <td>Mobile Number</td>
+                    <td>{{ std.std_mobile }}</td>
+                  </tr>
+                  <tr>
+                    <td>Course Name</td>
+                    <td>{{ std.std_course }}</td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td>{{ std.std_address }}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <a href="/update/{{ std.std_rollno }}"><button type="submit" class="btn btn-primary mt-3">Update</button></a>
+              <a href="/delete/{{ std.std_rollno }}"><button type="submit" class="btn btn-danger mt-3">Delete</button></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 order-md-2">
+          <!-- Use order-md-2 to move the column to the right on medium and larger screens -->
+          <img src="/media/{{ std.std_image }}" class="img-fluid" alt="Not image found" style="height: 250px;" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

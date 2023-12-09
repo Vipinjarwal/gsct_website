@@ -1,0 +1,104 @@
+{% include 'header.html' %}
+
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-3 text-white">Courses</h1>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item">
+              <a class="text-white" href="/">Home</a>
+            </li>
+            <li class="breadcrumb-item">
+              <a class="text-white" href="">Pages</a>
+            </li>
+            <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Header End -->
+
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center wow fadeInUp">
+      <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+      <h1 class="mb-5">Courses List</h1>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6 wow fadeInUp">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Basic Course</h5>
+
+            {% for course in courses %}
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <a href="/coursedetails/{{ course.id }}">{{ course.name }}</a>
+                </li>
+                {% comment %} <li class="list-group-item">Ms office</li>
+                <li class="list-group-item">DTP</li>
+                <li class="list-group-item">CPCT</li>
+                <li class="list-group-item">Advance Excel</li>
+                <li class="list-group-item">Coding</li>
+                <li class="list-group-item">Tally</li> {% endcomment %}
+              </ul>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Diploma Course</h5>
+            <ul class="list-group">
+              <li class="list-group-item">ADCA</li>
+              <li class="list-group-item">PGDCA</li>
+              <li class="list-group-item">DCA</li>
+              <li class="list-group-item">BCCT</li>
+              <li class="list-group-item">DCHN</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Job Oriented Diploma</h5>
+            <ul class="list-group">
+              <li class="list-group-item">Hardware networking</li>
+              <li class="list-group-item">CCNA</li>
+              <li class="list-group-item">Digital Marketing</li>
+              <li class="list-group-item">C/c++</li>
+              <li class="list-group-item">Python</li>
+              <li class="list-group-item">Django</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6 wow fadeInUp">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Advanced Job Oriented Diploma</h5>
+            <ul class="list-group">
+              <li class="list-group-item">Website Development</li>
+              <li class="list-group-item">Linux</li>
+              <li class="list-group-item">CPCT</li>
+              <li class="list-group-item">Cyber Security</li>
+              <li class="list-group-item">Server</li>
+              <li class="list-group-item">Ethical hacking</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact End -->
+
+{% include 'footer.html' %}

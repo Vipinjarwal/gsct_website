@@ -1,0 +1,149 @@
+{% include 'header.html' %}
+
+{% for data in std %}
+  <div class="container mt-4 pt-5">
+    <h3 class="text-center alert alert-success">{{ data.std_name }} PROFILE</h3>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Heading</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Roll Number</td>
+                  <td>{{ data.std_rollno }}</td>
+                </tr>
+                <tr>
+                  <td>Name</td>
+                  <td>{{ data.std_name }}</td>
+                </tr>
+                <tr>
+                  <td>Father Name</td>
+                  <td>{{ data.std_father_name }}</td>
+                </tr>
+                <tr>
+                  <td>Mother Name</td>
+                  <td>{{ data.std_mother_name }}</td>
+                </tr>
+                <tr>
+                  <td>Date of Birth</td>
+                  <td>{{ data.std_age }}</td>
+                </tr>
+                <tr>
+                  <td>Mobile Number</td>
+                  <td>{{ data.std_mobile }}</td>
+                </tr>
+                <tr>
+                  <td>Course Name</td>
+                  <td>{{ data.std_course }}</td>
+                </tr>
+                <tr>
+                  <td>Address</td>
+                  <td>{{ data.std_address }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 order-md-2">
+        <img src="/media/{{ data.std_image }}" class="img-fluid" alt="Not image found" style="height: 250px;" />
+      </div>
+    </div>
+  </div>
+{% endfor %}
+
+{% for data in std %}
+  <div class="container mt-4 pt-5">
+    <h3 class="text-center alert alert-primary">{{ data.std_name }} RESULT</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-bordered table-striped table-hover">
+              <thead class="thead-dark">
+                <tr>
+                  <th>Result</th>
+                  <th>Semester 1</th>
+                  <th>Semester 2</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Course</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2018</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2019</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2020</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2021</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2022</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2023</td>
+                  <td>
+                    <a href="">Semester 1</a>
+                  </td>
+                  <td>
+                    <a href="">Semester 2</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% include 'footer.html' %}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Pannel</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">GSCT</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/admin/">Admin Home</a>
+          </li>
+          <li class="nav-item active align-right">
+            <form class="d-flex align-right" role="search">
+              {% if request.user.is_authenticated %}
+                <a href="/logout/" class="btn btn-danger mr-2 align-right" type="submit">Logout</a>
+              {% endif %}
+            </form>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container-fluid my-3">
+      <h1 class="text-center alert alert-danger">Student Mangement Pannel</h1>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="text-center alert alert-info">Student Registration Form</h4>
+              {% if messages %}
+                <div class="alert alert-primary" role="alert">
+                  {% for message in messages %}
+                    {{ message }}
+                  {% endfor %}
+                </div>
+              {% endif %}
+              <form action="/admin/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group mb-2">
+                  <label for="std_rollno">Student Roll Number</label>
+                  <input type="number" class="form-control" id="std_rollno" name="std_rollno" placeholder="Enter Student Roll Number" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_name">Student Name</label>
+                  <input type="text" class="form-control" id="std_name" name="std_name" placeholder="Enter Student Name" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_father_name">Student Father Name</label>
+                  <input type="text" class="form-control" id="std_father_name" name="std_father_name" placeholder="Enter Student Father Name" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_mother_name">Student Mother Name</label>
+                  <input type="text" class="form-control" id="std_mother_name" name="std_mother_name" placeholder="Enter Student Mother Names" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_age">Student Date of Birth</label>
+                  <input type="text" class="form-control" id="std_age" name="std_age" placeholder="YYYY-MM-DD" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_mobile">Student Mobile Number</label>
+                  <input type="number" class="form-control" id="std_mobile" name="std_mobile" placeholder="Enter Student Mobile Number" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_course">Student Course</label>
+                  <input type="text" class="form-control" id="std_course" name="std_course" placeholder="Enter Student Course" required />
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_address">Student Address</label>
+                  <textarea class="form-control" id="std_address" name="std_address" rows="5" required></textarea>
+                </div>
+                <div class="form-group mb-2">
+                  <label for="std_image">Student Image</label>
+                  <input type="file" class="form-control-file" id="std_image" name="std_image" />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-8">
+          <h4 class="text-center alert alert-info">Student Information</h4>
+
+          <div class="mt-4">
+            <div class="mx-auto col-8">
+              <form action="/admin/" class="d-flex align-items-center">
+                <div class="flex-grow-1 mr-2">
+                  <input type="text" name="search" class="form-control" placeholder="Search Student" />
+                </div>
+                <button type="submit" class="btn btn-outline-secondary">Search</button>
+              </form>
+            </div>
+          </div>
+
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col" class="text-center">Roll Number</th>
+                <th scope="col" class="text-center">Name</th>
+                <th scope="col" class="text-center">Course</th>
+                <th scope="col" class="text-center">Mobile Number</th>
+                <th scope="col" class="text-center">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for s in std %}
+                <tr>
+                  <th scope="row" class="text-center">{{ s.std_rollno }}</th>
+                  <td class="text-center">{{ s.std_name }}</td>
+                  <td class="text-center">{{ s.std_course }}</td>
+                  <td class="text-center">{{ s.std_mobile }}</td>
+                  <td class="text-center">
+                    <a href="{{ s.std_rollno }}"><button type="submit" class="btn btn-primary mt-3">Details</button></a>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
