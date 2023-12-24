@@ -8,25 +8,21 @@ class Course(models.Model):
     duration = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
 
 class Year(models.Model):
-    course = models.OneToOneField(
-        Course, verbose_name=("Student"), on_delete=models.CASCADE
-    )
     year = models.IntegerField()
 
     def __str__(self):
-        return f"{self.year} : {self.course}"
+        return f"{self.year}"
 
 
 class Semester(models.Model):
-    year = models.ForeignKey(Year, verbose_name=("Year"), on_delete=models.CASCADE)
     name = models.CharField(max_length=250)
 
     def __str__(self):
-        return f"{self.year} : {self.name}"
+        return f"{self.name}"
 
 
 class Student(models.Model):
@@ -37,7 +33,7 @@ class Student(models.Model):
     semester = models.ForeignKey(
         Semester, verbose_name=("Semester"), on_delete=models.CASCADE
     )
-    std_rollno = models.IntegerField(primary_key=True)
+    std_rollno = models.IntegerField()
     std_name = models.CharField(max_length=255)
     std_father_name = models.CharField(max_length=255)
     std_mother_name = models.CharField(max_length=255)
@@ -49,7 +45,7 @@ class Student(models.Model):
     )
 
     def __str__(self):
-        return self.std_name
+        return f"{self.std_name}"
 
 
 class Subject(models.Model):
@@ -59,7 +55,7 @@ class Subject(models.Model):
     subject = models.CharField(max_length=250)
 
     def __str__(self):
-        return f"{self.semester} : {self.subject}"
+        return f"{self.subject}"
 
 
 class Result(models.Model):

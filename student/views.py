@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .models import Student, Course
+from .models import Student, Course, Result, Year, Semester
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
@@ -33,19 +33,29 @@ def studenthub(request):
     if request.method == "POST":
         std_roll = request.POST.get("rollno")
         std_age = request.POST.get("age")
-        print(std_roll, std_age)
 
         std = Student.objects.filter(std_rollno=std_roll, std_age=std_age).values()
-        print(std)
 
         if std:
-            return render(request, "studentpannel.html", {"std": std})
+            year = Year.objects.all()
+            semester = Semester.objects.all()
+            return render(
+                request,
+                "studentpannel.html",
+                {"std": std, "semester": semester, "year": year},
+            )
 
         else:
             messages.error(request, "Student Not Found")
             return redirect("/studenthub/")
 
     return render(request, "studentinfo.html")
+
+
+def results(request, id):
+    results = Result.objects.filter(student_id=id)
+    print(results)
+    return render(request, "result.html", {"results": results})
 
 
 def aboutus(request):

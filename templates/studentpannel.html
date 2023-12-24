@@ -69,75 +69,23 @@
             <table class="table table-bordered table-striped table-hover">
               <thead class="thead-dark">
                 <tr>
-                  <th>Result</th>
-                  <th>Semester 1</th>
-                  <th>Semester 2</th>
+                  <th>Year</th>
+                  {% for s in semester %}
+                    <th>{{ s }}</th>
+                  {% endfor %}
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Course</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2018</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2019</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2020</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2021</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2022</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>2023</td>
-                  <td>
-                    <a href="">Semester 1</a>
-                  </td>
-                  <td>
-                    <a href="">Semester 2</a>
-                  </td>
-                </tr>
+                {% for y in year %}
+                  <tr>
+                    <td>{{ y }}</td>
+                    {% for s in semester %}
+                      <td>
+                        <a href="/result/{{ data.id }}/">{{ s }}</a>
+                      </td>
+                    {% endfor %}
+                  </tr>
+                {% endfor %}
               </tbody>
             </table>
           </div>
