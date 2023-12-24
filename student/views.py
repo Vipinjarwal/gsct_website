@@ -93,7 +93,6 @@ def student_create_show(request):
         std_age = request.POST.get("std_age")
         std_mobile = request.POST.get("std_mobile")
         std_address = request.POST.get("std_address").upper()
-        std_course = request.POST.get("std_course").upper()
         std_image = request.FILES.get("std_image")
 
         if Student.objects.filter(std_rollno=std_rollno):
@@ -109,7 +108,6 @@ def student_create_show(request):
                 std_age=std_age,
                 std_mobile=std_mobile,
                 std_address=std_address,
-                std_course=std_course,
                 std_image=std_image,
             )
             messages.success(request, "Student Created Successfully")
@@ -144,7 +142,6 @@ def student_doupdate(request, id):
         std_mother_name = request.POST.get("std_mother_name").upper()
         std_mobile = request.POST.get("std_mobile")
         std_address = request.POST.get("std_address").upper()
-        std_course = request.POST.get("std_course").upper()
         std_image = request.FILES.get("std_image")
         std_age = request.POST.get("std_age")
 
@@ -156,7 +153,7 @@ def student_doupdate(request, id):
         std.std_mother_name = std_mother_name
         std.std_mobile = std_mobile
         std.std_address = std_address
-        std.std_course = std_course
+
         if std_image:
             std.std_image = std_image
             std.save()
