@@ -37,12 +37,12 @@ def studenthub(request):
         std = Student.objects.filter(std_rollno=std_roll, std_age=std_age).values()
 
         if std:
-            year = Year.objects.all()
+            years = Year.objects.all()
             semester = Semester.objects.all()
             return render(
                 request,
                 "studentpannel.html",
-                {"std": std, "semester": semester, "year": year},
+                {"std": std, "semester": semester, "year": years},
             )
 
         else:
